@@ -1,0 +1,11 @@
+<?php 
+/**
+ * Rename "My Account" Link @ WooCommerce/WP Nav Menu
+ */
+add_filter( 'wp_nav_menu_items', 'dynamic_label_change', 10, 2 ); 
+function dynamic_label_change( $items, $args ) { 
+  if ( ! is_user_logged_in() ) { 
+    $items = str_replace( "My Account", "Login", $items ); 
+  } 
+  return $items; 
+}
